@@ -1,0 +1,46 @@
+<h4 class="modal-title" id="modal-basic-title">Anatomical Structures Data</h4>
+<div class="structures">
+    <div (click)="openDescription(d.name,d.id, mymodal)" *ngFor="let d of uniqueAnatomicalStructures">
+      <span><b>Name:</b> {{d.name}}</span>
+      <br />
+      <span><b>ID:</b> {{d.id}}</span>
+      <br /><br />
+    </div>
+  </div>
+
+<ng-template #mymodal let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Details</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+    <div *ngIf="errorpopup===false" class="modal-body">
+      <div>
+          <span><b>Name</b></span><br />
+          <span>{{name}}</span>     
+      </div>
+      <br />
+      <div>
+        <span><b>Description</b></span><br />
+        <span>{{description}}</span>
+    </div>
+    <br />
+      <div>
+        <span><b>Ontology Link</b></span><br />
+        <span>{{ontology_iri}}</span>
+    </div>
+    <br />
+      <div>
+        <span><b>IRI</b></span><br />
+        <span>{{iri}}</span>
+    </div>
+    </div>
+    <div *ngIf="errorpopup===true" class="modal-body">
+        <span>Error: No ID to featch data!!!</span>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button>
+    </div>
+  </ng-template>
+

@@ -1,0 +1,9 @@
+  .structures {
+    width: 90%;
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+}
+.align {
+    align-items: center;
+  }
